@@ -60,10 +60,10 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
             <a
               href="tel:+923335299143"
-              className="flex items-center gap-2 text-sm font-medium text-primary-deep hover:text-primary transition-colors"
+              className="hidden xl:flex items-center gap-2 text-sm font-medium text-primary-deep hover:text-primary transition-colors whitespace-nowrap"
             >
               <Phone className="w-4 h-4" /> 0333 5299143
             </a>
@@ -73,16 +73,16 @@ const Navbar = () => {
               </Button>
             )}
             {user ? (
-              <Button onClick={() => signOut()} variant="ghost" size="sm" aria-label="Sign out">
+              <Button onClick={() => signOut()} variant="ghost" size="icon" aria-label="Sign out">
                 <LogOut className="w-4 h-4" />
               </Button>
             ) : (
-              <Button asChild variant="ghost" size="sm" aria-label="Sign in">
+              <Button asChild variant="ghost" size="icon" aria-label="Sign in">
                 <Link to="/auth"><LogIn className="w-4 h-4" /></Link>
               </Button>
             )}
-            <Button asChild variant="hero" size="lg">
-              <a href="/#book">Book Appointment</a>
+            <Button asChild variant="hero" size="default">
+              <a href="/#book" className="whitespace-nowrap">Book Appointment</a>
             </Button>
           </div>
 

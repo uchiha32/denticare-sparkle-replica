@@ -51,8 +51,8 @@ const Footer = () => (
             ))}
           </ul>
           <div className="flex gap-3 mt-5">
-            <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors"><Instagram className="w-4 h-4" /></a>
-            <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors"><Facebook className="w-4 h-4" /></a>
+            <a href="https://www.instagram.com/denticare.pk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors"><Instagram className="w-4 h-4" /></a>
+            <a href="https://www.facebook.com/denticare.pk/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center transition-colors"><Facebook className="w-4 h-4" /></a>
           </div>
         </div>
       </div>
