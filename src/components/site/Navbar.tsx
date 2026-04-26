@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, LogIn, LogOut, PenLine } from "lucide-react";
 import logo from "@/assets/denticare-logo.png";
+import { useAuth } from "@/hooks/useAuth";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#doctor", label: "Dentists" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#doctor", label: "Dentists" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { user, isOwner, signOut } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,8 +67,22 @@ const Navbar = () => {
             >
               <Phone className="w-4 h-4" /> 0333 5299143
             </a>
+            {isOwner && (
+              <Button asChild variant="outline" size="sm">
+                <Link to="/admin/blog"><PenLine className="w-4 h-4" /> Write</Link>
+              </Button>
+            )}
+            {user ? (
+              <Button onClick={() => signOut()} variant="ghost" size="sm" aria-label="Sign out">
+                <LogOut className="w-4 h-4" />
+              </Button>
+            ) : (
+              <Button asChild variant="ghost" size="sm" aria-label="Sign in">
+                <Link to="/auth"><LogIn className="w-4 h-4" /></Link>
+              </Button>
+            )}
             <Button asChild variant="hero" size="lg">
-              <a href="#book">Book Appointment</a>
+              <a href="/#book">Book Appointment</a>
             </Button>
           </div>
 
