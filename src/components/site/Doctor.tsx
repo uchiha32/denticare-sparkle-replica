@@ -23,7 +23,7 @@ const Doctor = () => (
           imageClassName="scale-150 object-[center_25%]"
           alt="Asst. Prof. Dr. Muhammad Omer Siddiqui — Cosmetic Dentist at Denticare Dental Clinic Islamabad"
           name={<>Asst. Prof. Dr. Muhammad <span className="text-gradient">Omer Siddiqui</span></>}
-          credentials="BDS, MHPE · PMDC Verified Dentist"
+          credentials="BDS, MHPE · Cosmetic Dentist"
           badge="BDS · MHPE"
           role="Lead Dentist"
           bio="With over 16 years of clinical experience, Dr. Omer is renowned for his calm, ethical and patient-first approach. His expertise spans cosmetic dentistry, implants, root canals and complex restorations — delivered with precision and genuine care."
