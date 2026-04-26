@@ -16,6 +16,7 @@ const links = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { user, isOwner, signOut } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,8 +65,22 @@ const Navbar = () => {
             >
               <Phone className="w-4 h-4" /> 0333 5299143
             </a>
+            {isOwner && (
+              <Button asChild variant="outline" size="sm">
+                <Link to="/admin/blog"><PenLine className="w-4 h-4" /> Write</Link>
+              </Button>
+            )}
+            {user ? (
+              <Button onClick={() => signOut()} variant="ghost" size="sm" aria-label="Sign out">
+                <LogOut className="w-4 h-4" />
+              </Button>
+            ) : (
+              <Button asChild variant="ghost" size="sm" aria-label="Sign in">
+                <Link to="/auth"><LogIn className="w-4 h-4" /></Link>
+              </Button>
+            )}
             <Button asChild variant="hero" size="lg">
-              <a href="#book">Book Appointment</a>
+              <a href="/#book">Book Appointment</a>
             </Button>
           </div>
 
