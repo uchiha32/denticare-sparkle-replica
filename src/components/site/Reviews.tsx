@@ -34,18 +34,23 @@ const Reviews = () => {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(5);
   const [hover, setHover] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) setUserReviews(JSON.parse(stored));
     } catch {}
   }, []);
 
-  // Reshuffle every time the page opens / component mounts
+  // Reshuffle only on the client to avoid SSR hydration mismatch
   const displayed = useMemo(
-    () => shuffle([...userReviews, ...seedReviews]),
-    [userReviews]
+    () =>
+      mounted
+        ? shuffle([...userReviews, ...seedReviews])
+        : [...userReviews, ...seedReviews],
+    [userReviews, mounted]
   );
 
   const handleSubmit = (e: React.FormEvent) => {
