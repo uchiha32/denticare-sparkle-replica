@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, LogIn, LogOut, PenLine } from "lucide-react";
 import logo from "@/assets/denticare-logo.png";
+import { useAuth } from "@/hooks/useAuth";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#doctor", label: "Dentists" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#doctor", label: "Dentists" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
