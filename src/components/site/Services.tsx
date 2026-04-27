@@ -26,7 +26,7 @@ import prosthodontics from "@/assets/service-prosthodontics.jpg";
 const services = [
   { icon: Sparkles, image: whitening, title: "Teeth Whitening", desc: "Brighten your smile with safe, professional whitening treatments." },
   { icon: Wrench, image: implants, title: "Dental Implants", desc: "Permanent, natural-looking tooth replacements that last a lifetime." },
-  { icon: Smile, image: veneers, title: "Veneers", desc: "Custom porcelain veneers for a flawless Hollywood smile.", fit: "contain" as const },
+  { icon: Smile, image: veneers, title: "Veneers", desc: "Custom porcelain veneers for a flawless Hollywood smile." },
   { icon: Crown, image: crowns, title: "Crowns & Bridges", desc: "Restore strength and aesthetics with premium zirconia crowns and bridges." },
   { icon: Activity, image: rootcanal, title: "Root Canal Treatment", desc: "Pain-free, modern endodontic care to save your natural teeth." },
   { icon: ShieldCheck, image: scaling, title: "Scaling & Polishing", desc: "Deep cleaning to keep your gums healthy and teeth shining." },
@@ -68,7 +68,7 @@ const Services = () => (
                 loading="lazy"
                 width={768}
                 height={512}
-                className={`w-full h-full ${s.fit === "contain" ? "object-contain" : "object-cover"} group-hover:scale-110 transition-transform duration-700`}
+                className={`w-full h-full ${s.title === "Veneers" ? "object-contain" : "object-cover"} group-hover:scale-110 transition-transform duration-700`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/70 via-primary-deep/10 to-transparent" />
               <div className="absolute bottom-3 left-3 w-12 h-12 rounded-xl bg-hero-gradient grid place-items-center text-primary-foreground shadow-elegant group-hover:scale-110 transition-transform duration-500">
