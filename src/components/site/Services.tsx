@@ -61,14 +61,14 @@ const Services = () => (
             className="group relative bg-card-gradient rounded-2xl overflow-hidden border border-border/60 shadow-soft hover:shadow-elegant hover:-translate-y-2 transition-all duration-500 animate-fade-in-up"
             style={{ animationDelay: `${i * 60}ms` }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-48 overflow-hidden bg-muted">
               <img
                 src={s.image}
                 alt={s.title}
                 loading="lazy"
                 width={768}
                 height={512}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className={`w-full h-full ${s.fit === "contain" ? "object-contain" : "object-cover"} group-hover:scale-110 transition-transform duration-700`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/70 via-primary-deep/10 to-transparent" />
               <div className="absolute bottom-3 left-3 w-12 h-12 rounded-xl bg-hero-gradient grid place-items-center text-primary-foreground shadow-elegant group-hover:scale-110 transition-transform duration-500">
