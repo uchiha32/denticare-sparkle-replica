@@ -20,9 +20,10 @@ const Doctor = () => (
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
         <DoctorCard
           image={drOmer}
+          imageClassName="scale-150 object-[center_25%]"
           alt="Asst. Prof. Dr. Muhammad Omer Siddiqui — Cosmetic Dentist at Denticare Dental Clinic Islamabad"
           name={<>Asst. Prof. Dr. Muhammad <span className="text-gradient">Omer Siddiqui</span></>}
-          credentials="BDS, MHPE · PMDC Verified Dentist"
+          credentials="BDS, MHPE · Cosmetic Dentist"
           badge="BDS · MHPE"
           role="Lead Dentist"
           bio="With over 16 years of clinical experience, Dr. Omer is renowned for his calm, ethical and patient-first approach. His expertise spans cosmetic dentistry, implants, root canals and complex restorations — delivered with precision and genuine care."
@@ -57,6 +58,7 @@ type StatItem = { icon: any; title: string; sub: string };
 
 const DoctorCard = ({
   image,
+  imageClassName,
   alt,
   name,
   credentials,
@@ -66,6 +68,7 @@ const DoctorCard = ({
   stats,
 }: {
   image: string;
+  imageClassName?: string;
   alt: string;
   name: React.ReactNode;
   credentials: string;
@@ -81,7 +84,7 @@ const DoctorCard = ({
         <img
           src={image}
           alt={alt}
-          className="w-full h-full object-cover object-top"
+          className={`w-full h-full object-cover object-top ${imageClassName ?? ""}`}
           loading="lazy"
         />
       </div>

@@ -44,7 +44,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Denticare Dental Clinic logo"
-              className="h-16 sm:h-20 w-auto object-contain"
+              className="h-20 sm:h-24 w-auto object-contain"
             />
           </a>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors story-link"
+                className="text-base font-medium text-foreground/80 hover:text-primary transition-colors story-link"
               >
                 {l.label}
               </a>
@@ -63,9 +63,9 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-2">
             <a
               href="tel:+923335299143"
-              className="flex items-center gap-2 text-sm font-medium text-primary-deep hover:text-primary transition-colors whitespace-nowrap"
+              className="flex items-center gap-2 text-base font-medium text-primary-deep hover:text-primary transition-colors whitespace-nowrap"
             >
-              <Phone className="w-4 h-4" /> 0333 5299143
+              <Phone className="w-5 h-5" /> 0333 5299143
             </a>
             {isOwner && (
               <Button asChild variant="outline" size="sm">
@@ -81,8 +81,8 @@ const Navbar = () => {
                 <Link to="/auth"><LogIn className="w-4 h-4" /></Link>
               </Button>
             )}
-            <Button asChild variant="hero" size="default">
-              <a href="/#book" className="whitespace-nowrap">Book Appointment</a>
+            <Button asChild variant="hero" size="lg">
+              <a href="/#book" className="whitespace-nowrap text-base">Book Appointment</a>
             </Button>
           </div>
 
