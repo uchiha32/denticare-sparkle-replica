@@ -1,7 +1,19 @@
-node_modules
-dist
-.output
-.vinxi
-pnpm-lock.yaml
-package-lock.json
-routeTree.gen.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
+
+export default defineConfig({
+  plugins: [
+    tanstackStart({
+      target: "node",
+    }),
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
+  resolve: {
+    dedupe: ["react", "react-dom", "@tanstack/react-router"],
+  },
+});
