@@ -26,7 +26,7 @@ import prosthodontics from "@/assets/service-prosthodontics.jpg";
 const services = [
   { icon: Sparkles, image: whitening, title: "Teeth Whitening", desc: "Brighten your smile with safe, professional whitening treatments." },
   { icon: Wrench, image: implants, title: "Dental Implants", desc: "Permanent, natural-looking tooth replacements that last a lifetime." },
-  { icon: Smile, image: veneers, title: "Veneers", desc: "Custom porcelain veneers for a flawless Hollywood smile." },
+  { icon: Smile, image: veneers, title: "Veneers", desc: "Custom porcelain veneers for a flawless Hollywood smile.", fit: "contain" as const },
   { icon: Crown, image: crowns, title: "Crowns & Bridges", desc: "Restore strength and aesthetics with premium zirconia crowns and bridges." },
   { icon: Activity, image: rootcanal, title: "Root Canal Treatment", desc: "Pain-free, modern endodontic care to save your natural teeth." },
   { icon: ShieldCheck, image: scaling, title: "Scaling & Polishing", desc: "Deep cleaning to keep your gums healthy and teeth shining." },
