@@ -39,6 +39,17 @@ function AdminBlog() {
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
 
+  const handleNewPost = () => {
+    console.log("New Post clicked");
+    setEditing({ ...empty });
+  };
+
+  const handleAdminSignOut = async () => {
+    console.log("Sign out clicked");
+    await signOut();
+    navigate({ to: "/" });
+  };
+
   useEffect(() => {
     if (!loading && !user) navigate({ to: "/auth" });
   }, [loading, user, navigate]);
@@ -167,10 +178,10 @@ function AdminBlog() {
               </h1>
             </div>
             <div className="flex gap-3">
-              <Button onClick={() => setEditing({ ...empty })} variant="hero">
+              <Button onClick={handleNewPost} variant="hero">
                 <Plus className="w-4 h-4" /> New Post
               </Button>
-              <Button onClick={() => signOut().then(() => navigate({ to: "/" }))} variant="outline">
+              <Button onClick={handleAdminSignOut} variant="outline">
                 <LogOut className="w-4 h-4" /> Sign out
               </Button>
             </div>
