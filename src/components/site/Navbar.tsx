@@ -69,16 +69,16 @@ const Navbar = () => {
             </a>
             {isOwner && (
               <Button asChild variant="outline" size="sm">
-                <Link to="/admin/blog"><PenLine className="w-4 h-4" /> Write</Link>
+                <Link to="/admin/blog"><PenLine className="w-4 h-4" /> Write Blog</Link>
               </Button>
             )}
             {user ? (
-              <Button onClick={() => signOut()} variant="ghost" size="icon" aria-label="Sign out">
-                <LogOut className="w-4 h-4" />
+              <Button onClick={() => signOut()} variant="ghost" size="sm">
+                <LogOut className="w-4 h-4" /> Logout
               </Button>
             ) : (
-              <Button asChild variant="ghost" size="icon" aria-label="Sign in">
-                <Link to="/auth"><LogIn className="w-4 h-4" /></Link>
+              <Button asChild variant="ghost" size="sm">
+                <Link to="/auth"><LogIn className="w-4 h-4" /> Login</Link>
               </Button>
             )}
             <Button asChild variant="hero" size="lg">
