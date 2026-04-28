@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, LogIn, LogOut, PenLine } from "lucide-react";
 import logo from "@/assets/denticare-logo.png";
@@ -16,9 +16,21 @@ const links = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { user, isOwner, signOut } = useAuth();
+
+  const handleWriteBlog = () => {
+    console.log("Write Blog clicked");
+    navigate({ to: "/admin/blog" });
+  };
+
+  const handleLogout = async () => {
+    console.log("Sign out clicked");
+    await signOut();
+    navigate({ to: "/" });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -68,12 +80,12 @@ const Navbar = () => {
               <Phone className="w-5 h-5" /> 0333 5299143
             </a>
             {isOwner && (
-              <Button asChild variant="outline" size="sm">
-                <Link to="/admin/blog"><PenLine className="w-4 h-4" /> Write Blog</Link>
+              <Button onClick={handleWriteBlog} variant="outline" size="sm">
+                <PenLine className="w-4 h-4" /> Write Blog
               </Button>
             )}
             {user ? (
-              <Button onClick={() => signOut()} variant="ghost" size="sm">
+              <Button onClick={handleLogout} variant="ghost" size="sm">
                 <LogOut className="w-4 h-4" /> Logout
               </Button>
             ) : (
@@ -113,6 +125,34 @@ const Navbar = () => {
                   Book Appointment
                 </a>
               </Button>
+              {isOwner && (
+                <Button
+                  onClick={() => {
+                    setOpen(false);
+                    handleWriteBlog();
+                  }}
+                  variant="outline"
+                >
+                  <PenLine className="w-4 h-4" /> Write Blog
+                </Button>
+              )}
+              {user ? (
+                <Button
+                  onClick={() => {
+                    setOpen(false);
+                    handleLogout();
+                  }}
+                  variant="ghost"
+                >
+                  <LogOut className="w-4 h-4" /> Logout
+                </Button>
+              ) : (
+                <Button asChild variant="ghost">
+                  <Link to="/auth" onClick={() => setOpen(false)}>
+                    <LogIn className="w-4 h-4" /> Login
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         )}
