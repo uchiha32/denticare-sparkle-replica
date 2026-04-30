@@ -56,7 +56,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Denticare Dental Clinic logo"
-              className="h-28 sm:h-32 lg:h-36 w-auto object-contain"
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
             />
           </a>
 
