@@ -167,7 +167,7 @@ function AdminBlog() {
       <AnimatedBackground />
       <div className="relative z-10">
         <Navbar />
-        <main className="container pt-52 sm:pt-56 lg:pt-60 pb-20">
+        <main className="container pt-28 sm:pt-32 pb-20">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
             <div>
               <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary mb-2">
